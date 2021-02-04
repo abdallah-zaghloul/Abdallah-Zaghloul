@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware'=>'auth:admin','namespace'=>'Controllers'],function (){
+    Route::get('companies','CompanyController@index')->name('companies.index');
+    Route::get('employees','EmployeeController@index')->name('employees.index');
+});
+
