@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'auth:admin','namespace'=>'Controllers'],function (){
     Route::get('companies','CompanyController@index')->name('companies.index');
+    Route::post('companies','CompanyController@store')->name('company.store');
     Route::get('employees','EmployeeController@index')->name('employees.index');
 });
 

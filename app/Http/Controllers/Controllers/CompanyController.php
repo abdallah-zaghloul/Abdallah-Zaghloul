@@ -37,7 +37,11 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Company::create([
+            'name'=>$request['name']
+        ]);
+
+        return redirect()->back()->with(['success'=>'تم إدخال البيانات بنجاح']);
     }
 
     /**
